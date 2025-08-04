@@ -6,6 +6,7 @@
 
 #include "sys.h"
 #include "gpio.h"
+#include "timer0.h"
 
 #define LED_DEBUG_PIN   13
 
