@@ -1,12 +1,18 @@
-#include <cstdint>
 #include "global.h"
 
 
 int32_t TIMER0_Init(void) {
-  // CTC mode
-  // Fclk / 64
+  TCCR0A = 0x02;
+  TCCR0B = 0x03;
   // set reload register to 249
-  // clear the overflow flag
-  // enable the interrupt
-  
+  OCR0A = 249;
+  // clear the all flag
+  TIFR0 = 0x01;
+  // enable COMPA interrupt
+  TIMSK0 = 0x01;
+  return TIMER0_SUCCESS;
+}
+
+ISR(TIME0_COMPA_vect) {
+  SYS_TICK++;
 }

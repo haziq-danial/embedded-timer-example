@@ -1,3 +1,4 @@
+#include <avr/interrupt.h>
 #include "global.h"
 
 int32_t SYS_ERROR_NUM;
@@ -11,6 +12,7 @@ void SYS_Fatal_Error(int32_t err) {
 
 uint32_t SYS_Init(void) {
   SYS_TICK = 0;
+  sei();
 
   SYS_Error_Check(GPIO_Init());
   SYS_Error_Check(GPIO_Write(LED_DEBUG_PIN, GPIO_OUTPUT));
