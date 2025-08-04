@@ -7,9 +7,9 @@ int32_t TIMER0_Init(void) {
   // set reload register to 249
   OCR0A = 249;
   // clear the all flag
-  TIFR0 = 0x01;
+  TIFR0 = 0x07;
   // enable COMPA interrupt
-  TIMSK0 = 0x01;
+  TIMSK0 = 0x02;
   return TIMER0_SUCCESS;
 }
 

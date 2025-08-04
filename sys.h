@@ -9,7 +9,7 @@ extern "C" {
 #define SYS_SUCCESS         0
 #define SYS_Error_Check(x)  if(( SYS_ERROR_NUM = (x)) != 0) SYS_Fatal_Error(SYS_ERROR_NUM)
 
-extern uint64_t SYS_TICK;
+extern volatile uint64_t SYS_TICK;
 
 extern int32_t SYS_ERROR_NUM;
 extern void SYS_Fatal_Error(int32_t err);
