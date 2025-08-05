@@ -1,4 +1,3 @@
-#include <avr/interrupt.h>
 #include "global.h"
 
 int32_t SYS_ERROR_NUM;
@@ -10,7 +9,7 @@ void SYS_Fatal_Error(int32_t err) {
   for(;;);
 }
 
-uint32_t SYS_Init(void) {
+int32_t SYS_Init(void) {
   SYS_Error_Check(TIMER0_Init());
   SYS_TICK = 0;
   sei();

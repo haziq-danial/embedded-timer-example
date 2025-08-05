@@ -9,9 +9,9 @@ int main(void) {
 
   timeout = SYS_TICK + 1000;
 
-  for(;;) {
+  for (;;) {
     if (SYS_TICK > timeout) {
-    timeout = SYS_TICK + 1000;
+      timeout = SYS_TICK + 1000;
 
       if (toggle) {
         SYS_Error_Check(GPIO_Write(LED_DEBUG_PIN, GPIO_LOW));
