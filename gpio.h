@@ -23,6 +23,7 @@ extern "C" {
 extern int32_t GPIO_Init(void);
 extern int32_t GPIO_Mode(uint8_t pin, uint8_t direction);
 extern int32_t GPIO_Write(uint8_t pin, uint8_t state);
+extern int32_t GPIO_Read(uint8_t pin, uint8_t* value);
 
 #ifdef __cplusplus
 }
