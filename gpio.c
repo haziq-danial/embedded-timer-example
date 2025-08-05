@@ -44,6 +44,6 @@ int32_t GPIO_Read(uint8_t pin, uint8_t* value) {
   if (pin < 8) *value = PIND & (1 << pin);  // PIND (0 to 7)
   else *value = PINB & (1 << (pin & 7));    // PINB (8 to 13, becomes 0 to 5)
 
-  if (*value == 0) *value = GPIO_HIGH;
+  if (*value > 0) *value = GPIO_HIGH;
   else return 1;
 }
