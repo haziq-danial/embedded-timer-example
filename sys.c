@@ -15,8 +15,14 @@ int32_t SYS_Init(void) {
   sei();
 
   SYS_Error_Check(GPIO_Init());
-  SYS_Error_Check(GPIO_Write(LED_DEBUG_PIN, GPIO_OUTPUT));
   SYS_Error_Check(GPIO_Mode(LED_DEBUG_PIN, GPIO_OUTPUT));
+  SYS_Error_Check(GPIO_Mode(LED_GREEN_PIN, GPIO_OUTPUT));
+  SYS_Error_Check(GPIO_Mode(SW1_PIN, GPIO_INPUT));
+
+  SYS_Error_Check(GPIO_Write(LED_DEBUG_PIN, GPIO_LOW));
+  SYS_Error_Check(GPIO_Write(LED_GREEN_PIN, GPIO_LOW));
+
+
 
   return SYS_SUCCESS;
 }

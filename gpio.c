@@ -47,3 +47,4 @@ int32_t GPIO_Read(uint8_t pin, uint8_t* value) {
   if (*value > 0) *value = GPIO_HIGH;
   return GPIO_SUCCESS;
 }
+
