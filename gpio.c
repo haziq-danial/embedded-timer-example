@@ -25,7 +25,7 @@ int32_t GPIO_Mode(uint8_t pin, uint8_t direction) {
 
 int32_t GPIO_Write(uint8_t pin, uint8_t state) {
   if (pin > GPIO_MAX) return GPIO_ERROR_RANGE;
-  if (state > GPIO_HIGH) return GPIO_ERROR_RANGE;
+  if (state > GPIO_HIGH) return GPIO_ERROR_VALUE;
 
   if (state == GPIO_HIGH) {
     if (pin < 8) PORTD |= (1 << pin);
@@ -41,9 +41,9 @@ int32_t GPIO_Write(uint8_t pin, uint8_t state) {
 int32_t GPIO_Read(uint8_t pin, uint8_t* value) {
   if (pin > GPIO_MAX) return GPIO_ERROR_RANGE;
 
-  if (pin < 8) *value = PIND & (1 << pin);  // PIND (0 to 7)
-  else *value = PINB & (1 << (pin & 7));    // PINB (8 to 13, becomes 0 to 5)
+  if (pin < 8) *value = PORTD & (1 << pin);  // PIND (0 to 7)
+  else *value = PORTB & (1 << (pin & 7));    // PINB (8 to 13, becomes 0 to 5)
 
   if (*value > 0) *value = GPIO_HIGH;
-  else return 1;
+  return GPIO_SUCCESS;
 }
